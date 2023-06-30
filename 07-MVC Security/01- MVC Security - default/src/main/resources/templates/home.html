@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>MVC security project Home Page</title>
+    <style>
+        .header{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="header">Welcome to MVC security project Home Page !!! </h2>
+    <hr>
+    <p>
+        User : <span sec:authentication="principal.username"></span>
+    </p>
+    <p>
+        Role(s) : <span sec:authentication="principal.authorities"></span>
+    </p>
+
+    <hr>
+    <div sec:authorize="hasRole('MANAGER')">
+        <p>
+            <a th:href="@{/leaders}">Leadership</a>
+            Only for Managers
+        </p>
+        <hr>
+    </div>
+
+    <div sec:authorize="hasRole('ADMIN')">
+        <p>
+            <a th:href="@{/systems}">Systems</a>
+            Only for Admin
+        </p>
+        <hr>
+    </div>
+
+    <form action="#" th:action="@{/logout}" method="post">
+        <input type="submit" value="LogOut">
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Home Page</title>
+    <style>
+      .adminHeader{
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+  <h2 class="adminHeader"> Admin Home Page </h2>
+  <hr>
+  <p>
+    This is the page only accessible by Admins
+  </p>
+  <a th:href="@{/}"> Home Page </a>
+</body>
+</html>
